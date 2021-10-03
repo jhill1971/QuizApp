@@ -3,7 +3,9 @@ package com.jameshill.quizapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.SyncStateContract
 import android.widget.Toast
+import com.jameshill.quizapp.constants.USER_NAME
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             }else {
                 // Create an instance of Intent. Moves from this to the target activity
                 val intent = Intent (this, QuizQuestionsActivity::class.java)
+                intent.putExtra(constants.USER_NAME, et_name.text.toString())
                 //Start the target activity using the intent defined above.
                 startActivity(intent)
                 //finish the current activity
